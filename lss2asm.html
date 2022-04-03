@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script text="text/javascript" >
+        var file_content=''
+        var asm=''
+        var reader =  new FileReader();
+        reader.onload= function ()
+        {
+            file_content=reader.result;
+        };
+        function read_file()
+        {
+            reader.readAsText(document.querySelector('input').files[0]);
+        }
+        function convert()
+        {
+            let extracted_asm=file_content.matchAll(/(?:[ \dabcdef]+:\t[ \dabcdef]{2} [ \dabcdef]{2} [ \dabcdef]{2} [ \dabcdef]{2} \t)(?<cmd>[\w]{1,})\t?(?<args>[^;\r\n]*)?(?<comment>;[^\r\n]*)?(?:[\r\n]{1,2})/g);
+            for(const match of extracted_asm)
+            {
+                let str=(match.groups?.cmd?match.groups.cmd:'')+'\t'+(match.groups?.args?match.groups.args:'')+(match.groups?.comment?match.groups.comment:'')+'\n'
+                asm= asm.concat(str);
+            } 
+            var element =  document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(asm))
+            element.setAttribute('download', "untiteled.asm");
+            element.style.display='none'
+            document.body.appendChild(element);
+            element.click()
+            document.body.removeChild(element)
+            document.getElementById("file").innerText=asm
+        }
+        
+    </script>
+</head>
+<body  >
+    <span>
+        load .lss file to be convert to .asm file<br/>
+        <input type="file" accept=".lss" onchange="read_file()">
+        <button id="myBtn" onclick="convert()">convert</button>
+        <pre id="file"></pre>
+</body>
+</html>
