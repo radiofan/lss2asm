@@ -49,7 +49,7 @@
 					asm[i] = '\t' + asm[i];
 				}
 				for(let i in labels){
-					asm[i] = '\n' + labels[i] + '\n' + asm[i];
+					asm[i] = '\n' + labels[i] + ':\n' + asm[i];
 				}
 			}
 			

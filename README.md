@@ -173,10 +173,10 @@ int main(void){
 000000d8 <__stop_program>:
   d8:	ff cf       	rjmp	.-2      	; 0xd8 <__stop_program>
 ```
-
+  
   
 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  
-
+  
   
 ```
 	jmp	0x54	; 0x54 <__ctors_end>
@@ -217,59 +217,59 @@ int main(void){
 	out	0x18, r24	; 24
 	sbic	0x16, 0	; 22
 
-LABEL_37
+LABEL_37:
 	rjmp	LABEL_37     	; 0x9a <main+0x2e>
 	in	r24, 0x12	; 18
 	cpi	r24, 0x01	; 1
 	breq	LABEL_46      	; 0x88 <main+0x1c>
 	in	r24, 0x12	; 18
 
-LABEL_42
+LABEL_42:
 	lsr	r24
 	out	0x12, r24	; 18
 	ldi	r18, 0x9F	; 159
 	ldi	r19, 0x86	; 134
 
-LABEL_46
+LABEL_46:
 	ldi	r24, 0x01	; 1
 	subi	r18, 0x01	; 1
 	sbci	r19, 0x00	; 0
 	sbci	r24, 0x00	; 0
 	brne	LABEL_42      	; 0x8e <main+0x22>
 
-LABEL_51
+LABEL_51:
 	rjmp	LABEL_51      	; 0x98 <main+0x2c>
 	nop	
 	sbic	0x16, 1	; 22
 
-LABEL_54
+LABEL_54:
 	rjmp	LABEL_54     	; 0xbc <main+0x50>
 	in	r24, 0x12	; 18
 	cpi	r24, 0x80	; 128
 	breq	LABEL_63      	; 0xaa <main+0x3e>
 	in	r24, 0x12	; 18
 
-LABEL_59
+LABEL_59:
 	add	r24, r24
 	out	0x12, r24	; 18
 	ldi	r18, 0x9F	; 159
 	ldi	r19, 0x86	; 134
 
-LABEL_63
+LABEL_63:
 	ldi	r24, 0x01	; 1
 	subi	r18, 0x01	; 1
 	sbci	r19, 0x00	; 0
 	sbci	r24, 0x00	; 0
 	brne	LABEL_59      	; 0xb0 <main+0x44>
 
-LABEL_68
+LABEL_68:
 	rjmp	LABEL_68      	; 0xba <main+0x4e>
 
-LABEL_69
+LABEL_69:
 	nop	
 	sbic	0x16, 2	; 22
 
-LABEL_71
+LABEL_71:
 	rjmp	LABEL_69     	; 0x78 <main+0xc>
 	out	0x12, r25	; 18
 	ldi	r18, 0x9F	; 159
@@ -278,15 +278,15 @@ LABEL_71
 	subi	r18, 0x01	; 1
 	sbci	r19, 0x00	; 0
 
-LABEL_78
+LABEL_78:
 	sbci	r24, 0x00	; 0
 	brne	LABEL_71      	; 0xc8 <main+0x5c>
 
-LABEL_80
+LABEL_80:
 	rjmp	LABEL_80      	; 0xd2 <main+0x66>
 	nop	
 
-LABEL_82
+LABEL_82:
 	rjmp	LABEL_78     	; 0x78 <main+0xc>
 	cli	
 	rjmp	LABEL_82      	; 0xd8 <__stop_program>
