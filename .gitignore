@@ -1,0 +1,9 @@
+/create_bundle.cmd
+/*.zip
+/*.bundle
+*.log
+/.idea/
+
+!.gitkeep
+
+#git config --add merge.ff false
